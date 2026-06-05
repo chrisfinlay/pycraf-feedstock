@@ -66,10 +66,12 @@ test:
     - pycraf.utils
 
   commands:
-    # The full test suite segfaults on linux-aarch64, which is built under
-    # QEMU emulation on CI. The same tests pass natively on osx-arm64, so this
-    # is an emulation artifact rather than a real aarch64 bug. The import
-    # checks above still exercise loading every compiled extension module.
+    # linux-aarch64 is cross-compiled on an x86_64 host (see build_platform in
+    # conda-forge.yml), so its test phase does not run on CI regardless. The
+    # selector is kept as a safety net: under QEMU emulation this suite
+    # segfaults in the compiled atm._raytrace_path extension, while it passes
+    # natively on osx-arm64 (same ARM64 runtime), confirming an emulation
+    # artifact rather than a real aarch64 bug.
     - python -c "import pycraf; pycraf.test()"  # [not aarch64]
 
 about:

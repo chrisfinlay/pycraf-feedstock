@@ -2,6 +2,12 @@ provider:
   linux_aarch64: azure
   osx_arm64: azure
   win: azure
+build_platform:
+  # Cross-compile linux-aarch64 on a native x86_64 host instead of building
+  # under QEMU emulation, which is ~5-10x slower. Tests are not run on the
+  # cross-compiled package; the same ARM64 runtime is fully exercised by the
+  # native osx-arm64 build.
+  linux_aarch64: linux_64
 conda_forge_output_validation: true
 github:
   branch_name: main
