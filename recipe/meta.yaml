@@ -28,7 +28,7 @@ requirements:
     - pip
     - setuptools
     - setuptools_scm
-    - astropy
+    - astropy-base
     - cython >=3
     - numpy
     - scipy
@@ -38,7 +38,7 @@ requirements:
     - python
     - compilers  # [osx]
     - llvm-openmp  # [osx]
-    - astropy
+    - astropy-base
     - scipy
     - h5py
     - matplotlib-base >=3.3
@@ -69,7 +69,7 @@ test:
 
 about:
   home: https://github.com/bwinkel/pycraf
-  license: GPL-3.0
+  license: GPL-3.0-only
   license_family: GPL
   license_file: licenses/README.rst
   summary: A Python package for spectrum-management compatibility studies
